@@ -13,7 +13,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return '<a href="https://www.educastudio.com/contact-us">Contact us</a>';
+        return view('prak1.contact-us', ['link' => 'contact-us']);
     }
 
     /**

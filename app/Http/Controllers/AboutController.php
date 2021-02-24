@@ -11,4 +11,8 @@ class AboutController extends Controller
         echo "<br>";
         echo "Nama: Vega Anggaresta";
     }
+
+    public function aboutview(){
+        return view('prak1.about-us', ['link' => 'about-us']);
+    }
 }

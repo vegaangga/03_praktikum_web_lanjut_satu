@@ -27,7 +27,6 @@
         </style>
     </head>
     <body class="antialiased">
-            <p>Link home </p>
-            <a href="https://www.educastudio.com/category/{{ $link }}"> {{ $link }}</a>
+             <a href="https://www.educastudio.com/program/{{ $link }}">https://www.educastudio.com/program/ {{ $link }}</a>
     </body>
 </html>

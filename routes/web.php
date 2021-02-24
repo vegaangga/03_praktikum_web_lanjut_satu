@@ -82,3 +82,12 @@ Route::get('/news/{id?}', function ($id = null) {
    );
 
    /* 4 */
+   Route::prefix('program')->group(function () {
+    Route::get('/{id?}', [ProgramController::class,'program']);
+   });
+
+   /* 5 */
+   Route::get('/about-us',[AboutController::class, 'aboutview']);
+
+   /* 6 */
+   Route::resource('contact-us', ContactController::class);
