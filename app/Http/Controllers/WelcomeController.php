@@ -12,4 +12,9 @@ class WelcomeController extends Controller
     public function home(){
         return '<a href=" https://www.educastudio.com/">Educational Games</a>';
     }
+
+    public function hello() {
+        return view('blog.hello', ['name' => 'Vega']);
+       }
+
 }

@@ -22,81 +22,63 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/*
+// router biasa
+Route::get('/home', function () {
+    return view('home',['name' => 'Vega']);
+
+
 });
 
-/* Coba
+// jika file view didalam folder, gunakan blog(titik)
 Route::get('/hello', function () {
-    return 'Hello World';
-   });
-
-Route::get('/world', function () {
-    return 'World';
-   });
-
-Route::get('/world', [WelcomeController::class,'world']);
-*/
-
-/*------ Praktikum 1-----
-Route::get('/', function () {
-    echo "Selamat Datang";
+    return view('blog.hello', ['name' => 'Vega']);
     });
 
-Route::get('/about', function () {
-        echo "Nim: 2041723013";
-        echo "<br>";
-        echo "Nama: Vega Anggaresta";
-        });
+// Menampilkan view dari controller
+Route::get('/hello',[WelcomeController::class, 'hello']);
 
-Route::get('/articles/{id}', function ($id) {
-    return 'Halaman Artikel dengan ID->'.$id;
+// jika file view didalam folder, gunakan blog(titik)
+Route::get('/hello', function () {
+    return view('blog.hello')
+        ->with('name','Vega')
+        ->with('occupation','Astronaut');
+    });
+
+
+//Facades
+Route::get('/home', function () {
+    return View::make('hello', ['name' => 'Test']);
+
 });
+
 */
 
-/* ----- Praktikum 2 -----
-/* NO 2
-Route::get('/', [PageController::class,'index']);
-Route::get('/about', [PageController::class,'about']);
-Route::get('/articles/{id}', [PageController::class,'articles']);
-/* No 3
-Route::get('/', [HomeController::class,'index']);
-Route::get('/about', [AboutController::class,'about']);
-Route::get('/articles/{id}', [ArticleController::class,'articles']);
+/*
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 */
-
-/* ----- Praktikum 3 ----- */
-//No 1
-Route::get('/home',[WelcomeController::class,'home']);
-
-// No 2
-Route::prefix('category')->group(function () {
-    Route::get('/{id}', [ProductController::class,'products']);
+/* 1 */
+Route::get('/home', function () {
+    return view('prak1.home',['link' => 'https://www.educastudio.com/']);
 });
 
-Route::prefix('category')->group(function () {
-    Route::get('/', [ProductController::class,'products']);
-});
 
-/* No 3
-Route::get('/news/{id?}', function ($id = null) {
-    if ($id){
-        echo '<a href=https://www.educastudio.com/news/'.$id.'>'.$id.'</a>';
-    } else{
-        echo '<a href=https://www.educastudio.com/news>Beranda News</a>';
-    }
-   }
-);
-
-/* No 4 */
-Route::prefix('program')->group(function () {
-    Route::get('/{id?}', [ProgramController::class,'program']);
-});
-
-/* No 5 */
-Route::get('/about-us', function () {
-    return '<a href=https://www.educastudio.com/about-us>https://www.educastudio.com/about-us</a>';
+/* 2 */
+Route::prefix('products')->group(function () {
+    Route::get('/{id?}', [ProductController::class,'products']);
    });
 
-/* No 6 */
-Route::resource('contact-us', ContactController::class);
+/* 3 */
+Route::get('/news/{id?}', function ($id = null) {
+    if ($id){
+    return view('prak1.news',['link' => $id]);
+
+    } else{
+    return view('prak1.news1',['link' => 'https://www.educastudio.com/news']);
+    }
+    }
+   );
+
+   /* 4 */

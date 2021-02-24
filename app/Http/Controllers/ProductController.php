@@ -14,7 +14,7 @@ class ProductController extends Controller
     public function products($id){
         return '<a href="https://www.educastudio.com/category/'.$id.'">https://www.educastudio.com/category/'.$id.'</a>';
     }
-    */
+
     public function products(){
         echo '<a href="https://www.educastudio.com/category/marbel-edu-games">marbel-edu-games</a>';
         echo '<br>';
@@ -24,5 +24,9 @@ class ProductController extends Controller
         echo '<br>';
         echo '<a href="https://www.educastudio.com/category/kolak-kids-songs">kolak-kids-songs</a>';
     }
+    */
 
+    public function products($id){
+        return view('prak1.products', ['link' => $id]);
+    }
 }
