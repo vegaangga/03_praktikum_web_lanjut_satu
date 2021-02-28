@@ -29,7 +29,5 @@
     </head>
     <body class="antialiased">
             <a href="{{ $link }}"> {{ $link }}</a>
-
-
     </body>
 </html>

@@ -30,6 +30,5 @@
     <body class="antialiased">
             <a href="https://www.educastudio.com/news/{{ $link }}"> {{ $link }}</a>
 
-
     </body>
 </html>

@@ -66,7 +66,7 @@ Route::get('/home', function () {
 
 
 /* 2 */
-Route::prefix('products')->group(function () {
+Route::prefix('category')->group(function () {
     Route::get('/{id?}', [ProductController::class,'products']);
    });
 
